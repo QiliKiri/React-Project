@@ -1,11 +1,17 @@
 .todo-app {
-  font-weight: bold;
   display: flex;
   justify-content: center;
+  width: 80%;
+  height: max-content;
+  margin: auto;
+  padding: 5px 10px 5px 10px;
+  border: double 10px;
 }
 .todo-app > div > h1 {
   display: flex;
   justify-content: center;
+  padding-bottom: 2px;
+  border-bottom: solid 2px;
 }
 .complete {
   text-decoration: line-through;
@@ -13,7 +19,9 @@
 }
 .todo-form {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 10px;
   padding-bottom: 5px;
   border-bottom: solid 1px;
@@ -25,8 +33,13 @@
 }
 .todo-row {
   display: flex;
-  align-items: center;
   margin-bottom: 10px;
+}
+.todo-row details[open] summary {
+  border-bottom: solid 1px;
+}
+.todo-row details summary {
+  font-weight: bold;
 }
 .task {
   width: 80%;

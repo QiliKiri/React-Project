@@ -18,7 +18,7 @@ function TodoList() {
     }
 
     const removeTodo = (id) => {
-        const removed = todos.find(todo => todo.id == id);
+        const removed = todos.find(todo => todo.id === id);
         removed.isComplete ? setNumOfTasks(numOfTasks) : setNumOfTasks(numOfTasks - 1)
         const afterRemove = [...todos]
             .filter(todo => todo.id !== id)
@@ -26,12 +26,12 @@ function TodoList() {
         setTodos(afterRemove);
     }
 
-    const editTodo = (id, newValue, newUrgencyLv) => {
+    const editTodo = (id, newValue, newDetail, newUrgencyLv) => {
         if (!newValue || /^\s*$/.test(newValue)) {
             alert('Task content cannot be empty');
             return;
         }
-        const newTodo = {id: id, text: newValue, urgencyLv: newUrgencyLv};
+        const newTodo = {id: id, text: newValue, detail: newDetail, urgencyLv: newUrgencyLv};
         setTodos(todos.map(todo => (todo.id === id) ? newTodo : todo)
             .sort((a, b) => b.urgencyLv - a.urgencyLv));
     }
@@ -54,7 +54,7 @@ function TodoList() {
 
     return (
         <div>
-            <h1>You have {numOfTasks} tasks today</h1>
+            <h1>You have {numOfTasks} tasks left today</h1>
             <TodoForm onSubmit={addTodo} />
             <div className={'todo-list'}>
                 <Todo

@@ -3,6 +3,7 @@ import React, {useState, useEffect, useRef} from 'react';
 function TodoForm(props) {
     const [input, setInput] = useState(props.edit? props.edit.value : '');
     const [urgency, setUrgency] = useState(props.edit? props.edit.urgencyLv : 1);
+    const [detail, setDetail] = useState(props.edit? props.edit.detail : '');
     // const inputRef = useRef(null);
 
     // useEffect(() => {
@@ -15,6 +16,9 @@ function TodoForm(props) {
     const handleUrgencyChange = (e) => {
         setUrgency(e.target.value);
     }
+    const handleDetailChange = (e) => {
+        setDetail(e.target.value);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,37 +26,35 @@ function TodoForm(props) {
         props.onSubmit({
             id: Date.now(),
             text: input,
+            detail: detail,
             urgencyLv: urgency
         });
 
         setInput('');
-        setUrgency(1);
+        setDetail('');
+        setUrgency('');
     }
 
     return (
         <form className={'todo-form'} onSubmit={handleSubmit}>
-            {!props.edit?
-                (<>
-                    <input type={'text'} placeholder={'Add a todo'} value={input}
-                           name={'text'} className={'todo-input'}
-                           onChange={handleInputChange} />
-                    <input type={'number'}  value={urgency}
-                           min={1} max={5}
-                           name={'urgency'}
-                           onChange={handleUrgencyChange} />
-                <button className={'todo-button'}>Add todo</button>
-                </>) :
-                (<>
-                    <input type={'text'} placeholder={'Update a todo'} value={input}
-                           name={'text'} className={'todo-input'}
-                           onChange={handleInputChange} />
-                    <input type={'number'}  value={urgency}
-                           min={1} max={5}
-                           name={'urgency'}
-                           onChange={handleUrgencyChange} />
-                <button className={'todo-button'}>Update todo</button>
-                </>)
-            }
+
+            <>
+                <label htmlFor={'task'}>Task:</label>
+                <input type={'text'} placeholder={'Input the task'} value={input}
+                       name={'text'} id={'task'}
+                       onChange={handleInputChange} />
+                <label htmlFor={'detail'}>Detail:</label>
+                <input type={'text'} placeholder={'Input the detail [Optional]'} value={detail}
+                       name={'detail'} id={'detail'}
+                       onChange={handleDetailChange} />
+                <label htmlFor={'urgency'}>Urgency Level:</label>
+                <input type={'number'} placeholder={'1 - 5'} value={urgency}
+                       min={1} max={5}
+                       name={'urgency'} id={'urgency'}
+                       onChange={handleUrgencyChange} />
+                <button className={'todo-button'}>{props.edit? 'Edit' : 'Add'}</button>
+            </>
+
         </form>
     );
 }
