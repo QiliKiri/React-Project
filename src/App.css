@@ -1,7 +1,12 @@
+#root {
+  display: flex;
+  flex-direction: column;
+}
 .todo-app {
   display: flex;
-  justify-content: center;
-  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  width: min(max(480px, 50vw), 70vw);
   height: max-content;
   margin: auto;
   padding: 5px 10px 5px 10px;
@@ -22,13 +27,16 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
+  width: 80%;
   margin-bottom: 10px;
   padding-bottom: 5px;
   border-bottom: solid 1px;
 }
+.todo-form input {
+  width: 100%;
+}
 .todo-list {
-  width: max(480px, 70vw);
-  padding: 10px;
+  width: 80%;
   /*background-color: aqua;*/
 }
 .todo-row {
@@ -50,4 +58,23 @@
 .icons {
   margin-left: auto;
   font-size: 20px;
+}
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: double 5px;
+  width: max-content;
+}
+.clock div:nth-child(1) {
+  font-size: 20px;
+  border-bottom: solid 2px;
+}
+.clock div:nth-child(2) {
+  margin-top: 3px;
+  font-size: 15px;
 }

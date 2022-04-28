@@ -53,7 +53,7 @@ function TodoList() {
     }
 
     return (
-        <div>
+        <>
             <h1>You have {numOfTasks} tasks left today</h1>
             <TodoForm onSubmit={addTodo} />
             <div className={'todo-list'}>
@@ -64,7 +64,7 @@ function TodoList() {
                     editTodo={editTodo}
                 />
             </div>
-        </div>
+        </>
     )
 }
 
