@@ -12,11 +12,16 @@
   padding: 5px 10px 5px 10px;
   border: double 10px;
 }
-.todo-app > div > h1 {
+.todo-app > h1 {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding-bottom: 2px;
-  border-bottom: solid 2px;
+  margin-bottom: 3px;
+  width: 100%;
+}
+.todo-app > progress {
+  width: 80%;
 }
 .complete {
   text-decoration: line-through;
@@ -29,11 +34,11 @@
   justify-content: space-between;
   width: 80%;
   margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: solid 1px;
+  padding: 3px;
+  border: solid 1px;
 }
 .todo-form input {
-  width: 100%;
+  width: auto;
 }
 .todo-list {
   width: 80%;
@@ -55,10 +60,27 @@
   border: solid 2px;
   padding: 5px;
 }
+.priority1 {
+  background-color: #ef6c6c;
+}
+.priority2 {
+  background-color: #f8b331;
+}
+.priority3 {
+  background-color: yellow;
+}
+.priority4 {
+  background-color: #6cf66c;
+}
+.priority5 {
+  background-color: aqua;
+}
 .icons {
   margin-left: auto;
   font-size: 20px;
 }
+
+
 .clock {
   display: flex;
   flex-direction: column;
@@ -68,6 +90,7 @@
   margin-bottom: 10px;
   padding: 8px;
   border: double 5px;
+  border-radius: 15px;
   width: max-content;
 }
 .clock div:nth-child(1) {
