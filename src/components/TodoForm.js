@@ -1,8 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState} from 'react';
 
 function TodoForm(props) {
     const [input, setInput] = useState(props.edit? props.edit.value : '');
-    const [priority, setPriority] = useState(props.edit? props.edit.priorityLv : 1);
+    const [priority, setPriority] = useState(props.edit? props.edit.priorityLv : null);
     const [detail, setDetail] = useState(props.edit? props.edit.detail : '');
     // const inputRef = useRef(null);
 
@@ -44,7 +44,7 @@ function TodoForm(props) {
                        name={'text'} id={'task'}
                        onChange={handleInputChange} />
                 <label htmlFor={'detail'}>Detail:</label>
-                <input type={'text'} placeholder={'Input the detail [Optional]'} value={detail}
+                <input type={'text'} placeholder={'[Optional]'} value={detail}
                        name={'detail'} id={'detail'}
                        onChange={handleDetailChange} />
                 <label htmlFor={'priority'}>Priority Level:</label>

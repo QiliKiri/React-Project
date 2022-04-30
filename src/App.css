@@ -15,6 +15,7 @@
 .todo-app > h1 {
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
   justify-content: center;
   padding-bottom: 2px;
   margin-bottom: 3px;
@@ -31,21 +32,27 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
   width: 80%;
-  margin-bottom: 10px;
+  margin: 5px auto 5px auto;
   padding: 3px;
   border: solid 1px;
 }
-.todo-form input {
-  width: auto;
+.todo-form input,
+.todo-form button {
+  width: inherit;
 }
 .todo-list {
   width: 80%;
+  display: flex;
+  flex-direction: column;
   /*background-color: aqua;*/
 }
 .todo-row {
   display: flex;
+  flex-direction: row;
   margin-bottom: 10px;
 }
 .todo-row details[open] summary {
@@ -76,8 +83,9 @@
   background-color: aqua;
 }
 .icons {
-  margin-left: auto;
   font-size: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 
